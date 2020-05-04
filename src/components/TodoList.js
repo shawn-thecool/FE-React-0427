@@ -1,19 +1,14 @@
 import React from 'react';
 import store from '../redux';
-import {
-  VIZ_FILTER_TYPE,
-  addTodo,
-  setVizFilter
-} from '../redux/modules/todo/action';
+import { FILTER_TYPE, addTodo, setFilter } from '../redux/modules/todo/action';
 
 /**
  * create dummy data
  */
-store.dispatch(addTodo('keyA', 'msg 1'));
-store.dispatch(addTodo('keyB', 'msg 2'));
-store.dispatch(addTodo('keyC', 'msg 3'));
-store.dispatch(addTodo('keyD', 'msg 4'));
-store.dispatch(setVizFilter(VIZ_FILTER_TYPE.SHOW_COMPLETED));
+store.dispatch(
+  addTodo({ title: 'title', desc: 'desc', boss: 'boss', worker: 'worker' })
+);
+store.dispatch(setFilter(FILTER_TYPE.SHOW_TODO));
 
 /**
  * get state
@@ -21,18 +16,20 @@ store.dispatch(setVizFilter(VIZ_FILTER_TYPE.SHOW_COMPLETED));
 const { todos } = store.getState();
 console.log('todos', todos);
 
-const TodoItem = ({ id, text, completed }) => (
+const TodoItem = ({ id, title, desc, boss, worker }) => (
   <li>
-    [{id}_{text}_{String(completed) || 'false'}]
+    [{id}]{title}:{desc}
+    <br />
+    {boss} / {worker}
   </li>
 );
 
 const TodoList = () => (
   <div>
     <strong>Todo List</strong>
-    <p>{todos.visibilityFilter}</p>
+    <p>{todos.filter}</p>
     <ul>
-      {todos.list.map((todo) => (
+      {todos.contents.map((todo) => (
         <TodoItem key={todo.id} {...todo} />
       ))}
     </ul>
