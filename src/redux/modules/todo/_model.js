@@ -1,4 +1,4 @@
-const todos = {
+const todo = {
   filter: 'SHOW_ALL', // 리스트 필터 종류 [SHOW_ALL, SHOW_DOING, SHOW_DONE, SHOW_HOLD, SHOW_CLOSED, SHOW_ISSUE]
   contents: [
     {

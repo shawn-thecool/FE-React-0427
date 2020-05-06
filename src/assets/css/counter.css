@@ -1,0 +1,29 @@
+.comp_counter {
+  width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #efefef;
+}
+.comp_counter .tit_counter {
+  display: block;
+}
+.comp_counter input {
+  width: 50px;
+  margin: 10px 10px;
+}
+.comp_counter button {
+  width: 80px;
+  display: inline-block;
+  height: 20px;
+  margin: 0 10px;
+}
+.comp_counter span {
+  display: inline-block;
+  height: 20px;
+  margin: 0 10px;
+}
+.comp_counter .num_count {
+  background-color: #fff;
+  min-width: 100px;
+  text-align: center;
+}

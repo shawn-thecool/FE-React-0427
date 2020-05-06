@@ -8,9 +8,15 @@ import {
 } from './action';
 
 /**
+ * initial states
+ */
+const INITITIAL_FILTER_TYPE = FILTER_TYPE.SHOW_DONE;
+const INITITIAL_CONTENTS = [];
+
+/**
  * filter
  */
-const filter = (state = FILTER_TYPE.SHOW_DONE, action) => {
+const filter = (state = INITITIAL_FILTER_TYPE, action) => {
   switch (action.type) {
     case SET_FILTER:
       return action.filter;
@@ -22,7 +28,7 @@ const filter = (state = FILTER_TYPE.SHOW_DONE, action) => {
 /**
  * contents
  */
-const contents = (state = [], action) => {
+const contents = (state = INITITIAL_CONTENTS, action) => {
   switch (action.type) {
     case ADD_TODO:
       console.log('add', action);
