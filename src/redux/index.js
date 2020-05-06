@@ -5,6 +5,6 @@ import todosModel from './modules/todo/reducer';
 export default configureStore({
   reducer: {
     counter: counterReducer,
-    todos: todosModel
+    todo: todosModel
   }
 });

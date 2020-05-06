@@ -27,20 +27,33 @@ export const FILTER_TYPE = {
 /**
  * action creators
  */
-export const addTodo = ({ title, desc, boss, worker }) => ({
-  type: ADD_TODO,
-  title,
-  desc,
-  boss,
-  worker
-});
-export const updateTodo = ({ title, desc, boss, worker }) => ({
-  type: UPDATE_TODO,
-  title,
-  desc,
-  boss,
-  worker
-});
+let nextTodoId = 0
+export const addTodo = ({ title, desc, boss, worker }) => {
+  const todo = {
+    id: ++nextTodoId,
+    progress: PROGRESS_TYPE.TODO,
+    createdAt: new Date().toUTCString(),
+    updatedAt: null
+  };
+  if (title) todo.title = title;
+  if (desc) todo.desc = desc;
+  if (boss) todo.boss = boss;
+  if (worker) todo.worker = worker;
+  return { type: ADD_TODO, todo };
+};
+export const updateTodo = ({ id, title, progress, desc, boss, worker }) => {
+  if (!id) return console.log('id must need to update todo');
+  const todo = {
+    id,
+    updatedAt: new Date().toUTCString()
+  };
+  if (title) todo.title = title;
+  if (desc) todo.desc = desc;
+  if (progress) todo.progress = progress;
+  if (boss) todo.boss = boss;
+  if (worker) todo.worker = worker;
+  return { type: UPDATE_TODO, todo };
+};
 export const removeTodo = (id) => ({
   type: REMOVE_TODO,
   id

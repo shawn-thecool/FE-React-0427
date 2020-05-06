@@ -1,0 +1,38 @@
+.comp_todo {
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #efefef;
+}
+.comp_todo .head_todo {
+  overflow: hidden;
+  padding: 10px 0;
+}
+.comp_todo .tit_todo {
+  float: left;
+  font-size: 18px;
+  line-height: 22px;
+}
+.comp_todo .txt_filter {
+  float: right;
+}
+.comp_todo .list_todo {
+  overflow-y: scroll;
+  overflow-x: auto;
+  max-height: 300px;
+  background-color: #fff;
+}
+.comp_todo .list_todo li {
+  height: 50px;
+  padding: 0 10px;
+  line-height: 50px;
+  border-bottom: 1px solid #efefef;
+}
+.comp_todo .list_todo span,
+.comp_todo .list_todo button {
+  margin-right: 10px;
+}
+.comp_todo li.no_todo {
+  text-align: center;
+  color: #ed5045;
+}
