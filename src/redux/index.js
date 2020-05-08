@@ -1,10 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterModel from './modules/counter/reducer';
-import todoModel from './modules/todo/reducer';
+import rootReducer from './root.reducer';
+import rootSaga from './root.saga';
 
-export default configureStore({
-  reducer: {
-    counter: counterModel,
-    todo: todoModel
-  }
-});
+export { rootReducer, rootSaga };
