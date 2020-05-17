@@ -25,12 +25,7 @@ export const withRouteState = options => Component => props => {
   const lastLocation = useLastLocation();
   const params = useParams();
   const history = useHistory();
-  console.log({
-    location,
-    lastLocation,
-    params,
-    history
-  });
+  
 
   return <Component />;
 };

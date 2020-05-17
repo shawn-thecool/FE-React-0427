@@ -1,13 +1,6 @@
 import React, { useRef } from 'react';
 import { has } from 'ramda';
-/**
- * constants
- */
-// minify 되어도 사용 가능하도록 속성값을 사용
-const INITIAL_STATE = (InitialState.fName = 'InitialState');
-const LOADING_STATE = (LoadingState.fName = 'LoadingState');
-const SUCCESS_STATE = (SuccessState.fName = 'SuccessState');
-const FAILURE_STATE = (FailureState.fName = 'FailureState');
+
 /**
  * compoents
  */
@@ -63,6 +56,14 @@ export const FailureState = props => {
   const data = Array.isArray(on) ? on.map(o => o.data) : on.data;
   return children(data);
 };
+/**
+ * constants
+ */
+// minify 되어도 사용 가능하도록 속성값을 사용
+const INITIAL_STATE = (InitialState.fName = 'InitialState');
+const LOADING_STATE = (LoadingState.fName = 'LoadingState');
+const SUCCESS_STATE = (SuccessState.fName = 'SuccessState');
+const FAILURE_STATE = (FailureState.fName = 'FailureState');
 /**
  * helpers
  */
