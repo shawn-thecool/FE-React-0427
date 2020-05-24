@@ -1,23 +1,17 @@
-import { generateActions } from '../util/storeUtils';
 /**
  * action types
  */
-export const CREATE_TODO = 'CREATE_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
-export const CALL_TODOS_REQUEST = 'CALL_TODOS_REQUEST';
-export const CALL_TODOS_SUCCESS = 'CALL_TODOS_SUCCESS';
-export const CALL_TODOS_FAILURE = 'CALL_TODOS_FAILURE';
+export const GET_TODOS_REQUEST = 'GET_TODOS_REQUEST';
+export const GET_TODOS_SUCCESS = 'GET_TODOS_SUCCESS';
+export const GET_TODOS_FAILURE = 'GET_TODOS_FAILURE';
+export const CREATE_TODO_REQUEST = 'CREATE_TODO_REQUEST';
+export const CREATE_TODO_SUCCESS = 'CREATE_TODO_SUCCESS';
+export const CREATE_TODO_FAILURE = 'CREATE_TODO_FAILURE';
 /**
  * action creators
  */
-export const createTodo = ({ title, worker }) => ({
-  type: CREATE_TODO,
-  payload: {
-    title,
-    worker
-  }
-});
 export const removeTodo = ({ id }) => ({
   type: REMOVE_TODO,
   payload: {
@@ -36,10 +30,9 @@ export const updateTodo = ({ title, worker, boss, desc }) => ({
 /**
  * action creators for saga
  */
-export const callTodos = () => ({
-  type: CALL_TODOS_REQUEST,
-  payload: {
-    method: 'get',
-    url: '/todos'
-  }
+export const getTodos = () => ({
+  type: GET_TODOS_REQUEST
+});
+export const createTodo = () => ({
+  type: CREATE_TODO_REQUEST
 });

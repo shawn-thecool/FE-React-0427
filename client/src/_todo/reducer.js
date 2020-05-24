@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import {
-  CREATE_TODO,
   REMOVE_TODO,
   UPDATE_TODO,
-  CALL_TODOS_SUCCESS,
-  CALL_TODOS_FAILURE
+  GET_TODOS_SUCCESS,
+  GET_TODOS_FAILURE,
+  CREATE_TODO_SUCCESS,
+  CREATE_TODO_FAILURE
 } from './action';
 import initial from './initial';
 /**
@@ -12,20 +13,13 @@ import initial from './initial';
  */
 function fitler() {}
 function contents(state = initial.contents, action) {
+  console.log('type', action.type);
+  
   switch (action.type) {
-    case CREATE_TODO:
-      return [
-        ...state,
-        {
-          id: 'todo-1', // required todo-{number}
-          title: '', // required {string}
-          worker: 'shawn.thecool', // required {string}
-          boss: null,
-          desc: null,
-          createdAt: null, // {date} format YYYY-MM-DD
-          updatedAt: null // {date} format YYYY-MM-DD
-        }
-      ];
+    case CREATE_TODO_SUCCESS:
+      return state;
+    case CREATE_TODO_FAILURE:
+      return action.payload.error;
     case REMOVE_TODO:
       return state.filter(({ id }) => id !== action.payload.id);
     case UPDATE_TODO:
@@ -39,9 +33,9 @@ function contents(state = initial.contents, action) {
         if (desc) newContent['desc'] = desc;
         return { ...content, ...newContent };
       });
-    case CALL_TODOS_SUCCESS:
-      return action.payload.result.data.contents;
-    case CALL_TODOS_FAILURE:
+    case GET_TODOS_SUCCESS:
+      return action.payload.result.data.data;
+    case GET_TODOS_FAILURE:
       return action.payload.error;
     default:
       return state;
